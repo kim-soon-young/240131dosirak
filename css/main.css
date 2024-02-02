@@ -15,7 +15,10 @@ img {
   vertical-align: middle;
 }
 html {
-  font-size: 10px;
+  font-size: 16px;
+}
+html.active {
+  overflow: hidden;
 }
 body {
   height: 2000px;
@@ -28,13 +31,21 @@ body {
   word-break: keep-all;
   background-color: pink;
 }
+/* **********************************************
+공통 클래스 */
+.inner {
+  display: block;
+  width: 100%;
+  max-width: 1420px;
+  margin: 0 auto;
+  background-color: antiquewhite;
+}
 
 /* **********************************************
 전체 레이아웃 */
 .wrap {
   position: relative;
-  display: block; 
-
+  display: block;
 }
 /* **********************************************
 상단 */
@@ -65,7 +76,7 @@ body {
   background-color: url("../images/logo.png") no-repeat center;
   background-size: cover;
 }
-.header.active .gnb a{
+.header.active .gnb a {
   color: #222;
   line-height: 80px;
 }
@@ -88,7 +99,7 @@ body {
 .gnb {
   display: flex;
 }
-.gnb li a{
+.gnb li a {
   display: block;
   line-height: 100px;
   font-size: 17px;
@@ -101,7 +112,7 @@ body {
   position: relative;
 }
 /* 호버 했을 때 밑에 선 */
-.gnb li a span::after{
+.gnb li a span::after {
   content: "";
   position: absolute;
   bottom: -5px;
@@ -112,71 +123,96 @@ body {
   background-color: #fff;
   transition: all 0.5s;
 }
-.gnb li a:hover span::after{
+.gnb li a:hover span::after {
   width: 100%;
   opacity: 1;
 }
 
 /* **********************************************
 모바일 메뉴 햄버거 */
-.mbt{
+.mbt {
   display: none;
   position: absolute;
-  top:50%;
-  right:20px;
+  top: 50%;
+  right: 20px;
 
   width: 30px;
   height: 22px;
   background-color: transparent;
-  border:0;
+  border: 0;
   cursor: pointer;
 }
 .mbt span {
   position: absolute;
-  left:0;
-  top:0;
+  left: 0;
+  top: 0;
   display: block;
   width: 100%;
   height: 2px;
   background-color: #fff;
 }
-.mbt span:nth-child(1){
-  top:0;
+/* 햄버거 눌렀을 때 색상 바뀜 */
+.mbt {
+  display: none;
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  width: 30px;
+  height: 22px;
+  background-color: transparent;
+  /* font-size: 0; */
+  border: 0;
+  cursor: pointer;
+}
+.mbt.active span {
+  background-color: #222;
+}
+.mbt span {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #fff;
+}
+.mbt span:nth-child(1) {
+  top: 0;
   transform-origin: 0 50%;
   transition: all 0.3s;
 }
-.mbt:hover span:nth-child(1){
-  transform: rotate(45deg); 
+.mbt.ani span:nth-child(1) {
+  transform: rotate(45deg);
 }
-.mbt span:nth-child(2){
-  top:50%;
+.mbt span:nth-child(2) {
+  top: 50%;
 }
-.mbt:hover span:nth-child(2){
- opacity: 0;
+.mbt.ani span:nth-child(2) {
+  opacity: 0;
 }
-.mbt span:nth-child(3){
- top: 100%;
- transform-origin: 0 50%;
+.mbt span:nth-child(3) {
+  top: 100%;
+  transform-origin: 0 50%;
+  transition: all 0.3s;
 }
-.mbt:hover span:nth-child(3){
+.mbt.ani span:nth-child(3) {
   transform: rotate(-45deg);
-  transition : all 0.3s;
- }
+}
 
 /* **********************************************
 모바일 메뉴 리스트 */
 .nav-mb {
   position: absolute;
   left: 100%;
-  top:70px;
+  top: 70px;
   width: 100%;
   height: calc(100vh - 70px);
   background-color: #fff;
   opacity: 0;
   transition: all 0.3s;
 }
-.nav-mb:active {
-  left: 0;
+.nav-mb.active {
+  left: 0%;
   opacity: 1;
 }
 .nav-mb-gnb li {
@@ -185,7 +221,35 @@ body {
 .nav-mb-gnb li a {
   display: block;
   padding: 0 40px;
-  font-size: 1.2rem;
-  color : #222;
+  font-size: 24px;
+  color: #222;
   border-bottom: 1px solid #e5e5e5;
+}
+/* **********************************************
+비주얼 */
+.visual {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100vh;
+}
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+.visual-box {
+  width: 100%;
+  height: 100%;
+}
+.visual-bg-1 {
+  background: url("../images/main_visual_1.jpg") no-repeat center;
+  background-size: cover;
+}
+.visual-bg-2 {
+  background: url("../images/main_visual_2.jpg") no-repeat center;
+  background-size: cover;
+}
+.visual-bg-3 {
+  background: url("../images/main_visual_3.jpg") no-repeat center;
+  background-size: cover;
 }
